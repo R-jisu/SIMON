@@ -41,6 +41,7 @@ int level_GEN::checkHit(FloatRect mouse)
 			cout << "level : " << _e.id() << endl;
 			return	_e.id();
 		}
+		return 0;
 	}
 }
 

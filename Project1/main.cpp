@@ -73,6 +73,12 @@ int main()
 		Event event;
 		while (window.pollEvent(event))
 		{
+
+			if (Buttonnumber == 0)
+			{
+				window.close();
+			}
+
 			switch (event.type)
 			{
 			case Event::Closed:
