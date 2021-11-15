@@ -184,20 +184,14 @@ int main()
 		if (time1 >= 800.0f)
 		{
 			buttons.recall_update();
-			buttons.recalldraw(window);
+			//buttons.recalldraw(window);
 		}
 
-			buttons.update();
-			buttons.draw(window);
-		
-		//buttons.recall_update();
-		//buttons.recalldraw(window);
 
-		//buttons.update();
-		//buttons.draw(window);
+		buttons.update();
+		buttons.draw(window);
 
-
-
+		//≈ÿΩ∫∆Æ
 		text.setString("Start When you click First Button      LV: ");
 		window.draw(text);
 		cur_lv = lv;

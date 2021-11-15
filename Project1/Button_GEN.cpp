@@ -112,10 +112,12 @@ void Button_GEN::upscore()
 
 void Button_GEN::recall(RenderWindow& _window)
 {
+
 		for (auto index : simonbutton)
-		{
+		{	
 				for (auto& _e : buttons)
 				{
+
 					if (_e.id() == index)
 					{
 						_e.recallcheck = true;
