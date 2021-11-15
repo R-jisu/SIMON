@@ -112,31 +112,28 @@ void Button_GEN::upscore()
 
 void Button_GEN::recall()
 {
-	//simonbuttons에 있는 id 값 출력 시간 간격을 두고 
-	//int j = 0;
+		for (auto index : simonbutton)
+		{
+			for (auto& _e : buttons)
+			{
+					if (_e.id() == index)
+					{
+							_e.recallcheck = true;
+					}
+			}
+		}
 
-	//while (j != simonbutton.size())
-	//{
-	//		time = clock.getElapsedTime().asMilliseconds();
-	//		auto  _e = buttons.at(simonbutton.at(j));
-
-
-	//		if (time <= recall_period)
-	//		{
-	//			cout << "time :" << time << endl;
-	//			_e.recalltoMagenta();
-	//		
-	//		}
-
-	//		cout << "recall e_id : " << _e.id() << endl;
-	//		_e.recalltoBlack();
-	//		j++;
-	//		cout << j << endl;
-	//		clock.restart();
-	//}
-	//cout << "recall end" << endl;
+	return;
+}
 
 
+void Button_GEN::recall_update()
+{
+	for (auto& _E : buttons)
+	{
+			_E.recallUpdate();
+			clock.restart();
+	}
 }
 
 // vector 안에 넣기 

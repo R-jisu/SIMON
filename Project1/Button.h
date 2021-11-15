@@ -15,13 +15,16 @@ private:
 	RectangleShape rect;
 public:
 	Clock clock;
+	Clock clock1;
 	float time = 0;
+	float time1 = 0;
 	int line_period;
 	bool checkit = false;
+	bool recallcheck= false;
+
 	Button(float _w, float _h, int _x, int _y, int _check);
 	void update();
-	void recalltoMagenta();
-	void recalltoBlack();
+	void recallUpdate();
 	void draw(RenderWindow& _window);
 	FloatRect getArea();
 	int id();

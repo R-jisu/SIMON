@@ -21,8 +21,8 @@ FloatRect getArea(CircleShape mouse)
 int main()
 {
 	Clock clock;
-	float time = 0;
-	int level_period = 500.0f;
+	float time = 1000.0f;
+	float time1 = 0;
 
 	Font font;
 	if (!font.loadFromFile("C:\\Users\\WCL\\Desktop\\project2\\arial.ttf"))
@@ -132,12 +132,14 @@ int main()
 				break;
 			case Event::MouseButtonPressed:
 			{
+
 				if (Mouse::isButtonPressed(Mouse::Left))
 				{
 					Vector2i pos = Mouse::getPosition(window);
 					mouse.setPosition(pos.x, pos.y);
 					buttons.checkHit(getArea(mouse));
 					i++;
+
 						if (buttons.simonbutton.at(i) == buttons.mybutton.at(i))
 						{
 							if (buttons.mybutton == buttons.simonbutton)
@@ -145,8 +147,13 @@ int main()
 								cout << "good" << endl;
 								buttons.upscore();
 								buttons.mybutton.clear();
+
+								time = 1000.0f;
+
 								lv++;
 								i = -1;
+
+
 							}
 						}
 						else
@@ -162,8 +169,17 @@ int main()
 			}
 
 		}
-	
+
+
+		
 		window.clear(Color::White);
+		if (time >= 1000.0f)
+		{
+			buttons.recall();
+			time = 0.0f;
+		}
+
+		buttons.recall_update();
 		buttons.update();
 		buttons.draw(window);
 

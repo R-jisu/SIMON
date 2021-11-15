@@ -22,6 +22,7 @@ public:
 	Button_GEN(int level_num);
 	
 	void recall();
+	void recall_update();
 	void upscore();
 	void update();
 	void draw(RenderWindow& _window);

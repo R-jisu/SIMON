@@ -2,38 +2,35 @@
 #include <iostream>
 Button::Button(float _w, float _h, int _x, int _y, int _check) : w(_w), h(_h), x(_x), y(_y), check(_check)
 {
-	line_period =300.0f;
+	line_period =500.0f;
 	rect = RectangleShape(Vector2f(_w, _h));
-	rect.setFillColor(Color::Red);
+	rect.setFillColor(Color::Blue);
 	rect.setPosition(_x, _y);
 	check = _check;
 	rect.setOutlineThickness(5);
 	rect.setOutlineColor(Color::Black);
+	recallcheck = false;
 	bool checkit = false;
 }
 
-void Button::recalltoMagenta()
+void Button::recallUpdate()
 {
-	if (checkit == true)
+	if (recallcheck == true)
 	{
-		rect.setOutlineColor(Color::Cyan);
-		checkit = false;
+		rect.setOutlineColor(Color::Magenta);
+		recallcheck = false;
 		clock.restart();
 	}
-
+	
 	time = clock.getElapsedTime().asMilliseconds();
 
 	if (time >= line_period)
 	{
-		//cout << "time : " << time << endl;
+	//cout << "time : " << time << endl;
 		rect.setOutlineColor(Color::Black);
 	}
 }
 
-void Button::recalltoBlack()
-{
-	rect.setOutlineColor(Color::Black);
-}
 
 void Button::update()
 {
@@ -42,17 +39,26 @@ void Button::update()
 
 	if (checkit == true)
 	{
-		rect.setFillColor(Color::Magenta);
+		rect.setFillColor(Color::Red);
 		checkit = false;
 		clock.restart();
 	}
+
+
+	//if (recallcheck == true)
+	//{
+	//	rect.setOutlineColor(Color::Magenta);
+	//	recallcheck = false;
+	//	clock.restart();
+	//}
 
 	time = clock.getElapsedTime().asMilliseconds();
 
 	if (time >= line_period)
 	{
-		//cout << "time : " << time << endl;
-		rect.setFillColor(Color::Red);
+		rect.setFillColor(Color::Blue);
+		//rect.setOutlineColor(Color::Black);
+
 	}
 }
 
