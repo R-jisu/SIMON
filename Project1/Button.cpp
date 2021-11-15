@@ -19,14 +19,13 @@ void Button::recallUpdate()
 	{
 		rect.setOutlineColor(Color::Magenta);
 		recallcheck = false;
-		clock.restart();
+		clock1.restart();
 	}
 	
-	time = clock.getElapsedTime().asMilliseconds();
+	time1 = clock1.getElapsedTime().asMilliseconds();
 
-	if (time >= line_period)
+	if (time1 >= line_period)
 	{
-	//cout << "time : " << time << endl;
 		rect.setOutlineColor(Color::Black);
 	}
 }
@@ -44,14 +43,6 @@ void Button::update()
 		clock.restart();
 	}
 
-
-	//if (recallcheck == true)
-	//{
-	//	rect.setOutlineColor(Color::Magenta);
-	//	recallcheck = false;
-	//	clock.restart();
-	//}
-
 	time = clock.getElapsedTime().asMilliseconds();
 
 	if (time >= line_period)
@@ -67,8 +58,6 @@ void Button::draw(RenderWindow& _window)
 	_window.draw(rect);
 }
 
-//똥의 크기를 받아올 함수입니다.
-// getGlobalBound를 사용하면 경계상자의 크기 위치를 반환해줍니다
 FloatRect Button::getArea()
 {
 	return rect.getGlobalBounds();

@@ -46,5 +46,3 @@ int level_GEN::checkHit(FloatRect mouse)
 	return 0;
 }
 
-
-//random으로 vector 안에 넣기 checkit = true;

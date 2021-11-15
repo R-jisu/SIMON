@@ -21,8 +21,9 @@ FloatRect getArea(CircleShape mouse)
 int main()
 {
 	Clock clock;
+	Clock clock1;
 	float time = 1000.0f;
-	float time1 = 0;
+	float time1 = 0.0f;
 
 	Font font;
 	if (!font.loadFromFile("C:\\Users\\WCL\\Desktop\\project2\\arial.ttf"))
@@ -149,11 +150,10 @@ int main()
 								buttons.mybutton.clear();
 
 								time = 1000.0f;
+								clock1.restart();
 
 								lv++;
 								i = -1;
-
-
 							}
 						}
 						else
@@ -169,19 +169,34 @@ int main()
 			}
 
 		}
-
-
-		
 		window.clear(Color::White);
+
+
 		if (time >= 1000.0f)
 		{
-			buttons.recall();
+			buttons.recall(window);
 			time = 0.0f;
 		}
+		
+		time1 = clock1.getElapsedTime().asMilliseconds();
 
-		buttons.recall_update();
-		buttons.update();
-		buttons.draw(window);
+		//정답 후 딜레이
+		if (time1 >= 800.0f)
+		{
+			buttons.recall_update();
+			buttons.recalldraw(window);
+		}
+
+			buttons.update();
+			buttons.draw(window);
+		
+		//buttons.recall_update();
+		//buttons.recalldraw(window);
+
+		//buttons.update();
+		//buttons.draw(window);
+
+
 
 		text.setString("Start When you click First Button      LV: ");
 		window.draw(text);

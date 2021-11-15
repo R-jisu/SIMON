@@ -110,17 +110,17 @@ void Button_GEN::upscore()
 
 }
 
-void Button_GEN::recall()
+void Button_GEN::recall(RenderWindow& _window)
 {
 		for (auto index : simonbutton)
 		{
-			for (auto& _e : buttons)
-			{
+				for (auto& _e : buttons)
+				{
 					if (_e.id() == index)
 					{
-							_e.recallcheck = true;
+						_e.recallcheck = true;
 					}
-			}
+				}
 		}
 
 	return;
@@ -132,11 +132,9 @@ void Button_GEN::recall_update()
 	for (auto& _E : buttons)
 	{
 			_E.recallUpdate();
-			clock.restart();
 	}
 }
 
-// vector 안에 넣기 
 void Button_GEN::update()
 {
 	for (auto& _E : buttons)
@@ -145,13 +143,24 @@ void Button_GEN::update()
 	}
 }
 
+void Button_GEN::recalldraw(RenderWindow& _window)
+{
+	for (auto& _e : buttons)
+	{
+			_e.draw(_window);
+	}
+}
+
+
 void Button_GEN::draw(RenderWindow& _window)
 {
 	for (auto& _e : buttons)
 	{
-		_e.draw(_window);
+			_e.draw(_window);
 	}
 }
+
+
 
 void Button_GEN::checkHit(FloatRect mouse)
 {
