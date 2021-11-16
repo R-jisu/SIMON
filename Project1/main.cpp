@@ -3,6 +3,7 @@
 #include <SFML/Window.hpp>
 #include <SFML/Main.hpp>
 #include <string>
+#include <random>
 #include <iostream>
 #include "Button_GEN.h"
 #include "Button.h"
@@ -115,7 +116,8 @@ int main()
 	int select = 0;
 
 	int mousecheck = 0;
-	//v1.push_back(0);
+
+	buttons.simonbutton.push_back(rand() % Buttonnumber);
 
 	while (window.isOpen())
 	{

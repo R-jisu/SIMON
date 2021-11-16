@@ -96,7 +96,7 @@ Button_GEN::Button_GEN(int level_num)
 		buttons.push_back(B5);buttons.push_back(B6);buttons.push_back(B7);buttons.push_back(B8);
 		buttons.push_back(B9);buttons.push_back(B10);
 	}
-	simonbutton.push_back(0);
+	//simonbutton.push_back(0);
 }
 
 void Button_GEN::upscore()
