@@ -22,6 +22,8 @@ public:
 	bool checkit = false;
 	bool recallcheck= false;
 
+	bool blink(bool _blink);
+
 	Button(float _w, float _h, int _x, int _y, int _check);
 	void update();
 	void recallUpdate();

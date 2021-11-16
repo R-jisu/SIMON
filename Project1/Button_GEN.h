@@ -21,12 +21,11 @@ public:
 
 	Button_GEN(int level_num);
 	
-	void recall(RenderWindow& _window);
-	void recall_update();
 	void upscore();
 	void update();
 
-	void recalldraw(RenderWindow& _window);
+	void blink(int p);
+
 	void draw(RenderWindow& _window);
-	void checkHit(FloatRect _rect);
+	int checkHit(FloatRect _rect);
 };

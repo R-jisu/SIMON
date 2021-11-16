@@ -110,31 +110,9 @@ void Button_GEN::upscore()
 
 }
 
-void Button_GEN::recall(RenderWindow& _window)
+void Button_GEN::blink(int p)
 {
-
-		for (auto index : simonbutton)
-		{	
-				for (auto& _e : buttons)
-				{
-
-					if (_e.id() == index)
-					{
-						_e.recallcheck = true;
-					}
-				}
-		}
-
-	return;
-}
-
-
-void Button_GEN::recall_update()
-{
-	for (auto& _E : buttons)
-	{
-			_E.recallUpdate();
-	}
+	buttons[p].blink(true);
 }
 
 void Button_GEN::update()
@@ -142,17 +120,9 @@ void Button_GEN::update()
 	for (auto& _E : buttons)
 	{
 			_E.update();
+			_E.recallUpdate();
 	}
 }
-
-void Button_GEN::recalldraw(RenderWindow& _window)
-{
-	for (auto& _e : buttons)
-	{
-			_e.draw(_window);
-	}
-}
-
 
 void Button_GEN::draw(RenderWindow& _window)
 {
@@ -163,8 +133,7 @@ void Button_GEN::draw(RenderWindow& _window)
 }
 
 
-
-void Button_GEN::checkHit(FloatRect mouse)
+int Button_GEN::checkHit(FloatRect mouse)
 {
 ;	for (auto& _e : buttons)
 	{
@@ -172,11 +141,8 @@ void Button_GEN::checkHit(FloatRect mouse)
 		{
 			_e.checkit = true;
 			mybutton.push_back(_e.id());
-			return;
+			return 1;
 		}
 	}
-	return;
+	return 0;
 }
-
-
-//random으로 vector 안에 넣기 checkit = true;
