@@ -1,6 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
 #include <SFML/Window.hpp>
+#include <SFML/Audio.hpp>
 #include <SFML/Main.hpp>
 #include <string>
 #include <random>
@@ -23,6 +24,24 @@ vector <int> v1;
 
 int main()
 {
+
+	sf::SoundBuffer correct;
+	sf::SoundBuffer button;
+	if (!correct.loadFromFile("C:\\Users\\WCL\\Desktop\\project2\\success.wav"))
+	{
+		cout << "eorr" << endl;
+	}
+
+	if (!button.loadFromFile("C:\\Users\\WCL\\Desktop\\project2\\button.wav"))
+	{
+		cout << "eorr" << endl;
+	}
+
+	sf::Sound sound;
+	sf::Sound sound_button;
+	sound.setBuffer(correct);
+	sound_button.setBuffer(button);
+
 	Clock clock;
 	Clock clock_to_delay;
 	Clock game_end;
@@ -149,6 +168,7 @@ int main()
 				if (time >= timer)
 				{
 					buttons.blink(buttons.simonbutton[p]);
+					sound_button.play();
 					clock.restart();
 					p++;
 				}
@@ -191,11 +211,14 @@ int main()
 					if (mousecheck == 1)
 					{
 						i++;
+						sound_button.play();
 
 						if (buttons.simonbutton.at(i) == buttons.mybutton.at(i))
 						{
 							if (buttons.mybutton == buttons.simonbutton)
 							{
+								sound.play();
+
 								cout << "good" << endl;
 								select = 0;
 
